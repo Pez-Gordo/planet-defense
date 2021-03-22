@@ -1,6 +1,7 @@
 
 body {
     background-color: 'lightgrey';
+    margin: 0;
 }
 #canvas {
     background-color: 'black';
