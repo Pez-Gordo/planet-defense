@@ -75,7 +75,7 @@ const x = canvas.width / 2
 const y = canvas.height / 2
 
 
-const player = new Player(x, y, 30, 'green')
+const player = new Player(x, y, 10, 'white')
 const projectiles = []
 const enemies = []
 
@@ -115,7 +115,8 @@ let animationId
 
 function animate() {
     animationId = requestAnimationFrame(animate)
-    c.clearRect(0, 0, canvas.width, canvas.height)
+    c.fillStyle = 'rgb(0, 0, 0, 0.1)'
+    c.fillRect(0, 0, canvas.width, canvas.height)
     player.draw()
     projectiles.forEach((projectile, index) => {
         projectile.update()
@@ -162,11 +163,11 @@ addEventListener('click', (event) => {
         event.clientX - canvas.width / 2
         )
     const velocity = {
-        x: Math.cos(angle),
-        y: Math.sin(angle)
+        x: Math.cos(angle) * 4,
+        y: Math.sin(angle) * 4
     }
     projectiles.push(
-        new Projectile(canvas.width / 2, canvas.height / 2, 5, 'red', velocity)
+        new Projectile(canvas.width / 2, canvas.height / 2, 5, 'white', velocity)
     )
     
 })
