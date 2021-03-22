@@ -96,7 +96,8 @@ function spawnEnemies() {
             y = Math.random() < 0.5 ? 0 - radius : canvas.height + radius
         }    
         
-        const color = 'blue'
+        //randomizing enemy colours
+        const color = `hsl(${Math.random() * 360}, 50%, 50%)`
 
         const angle = Math.atan2(
             canvas.height / 2 - y,
@@ -163,8 +164,8 @@ addEventListener('click', (event) => {
         event.clientX - canvas.width / 2
         )
     const velocity = {
-        x: Math.cos(angle) * 4,
-        y: Math.sin(angle) * 4
+        x: Math.cos(angle) * 5,
+        y: Math.sin(angle) * 5
     }
     projectiles.push(
         new Projectile(canvas.width / 2, canvas.height / 2, 5, 'white', velocity)
